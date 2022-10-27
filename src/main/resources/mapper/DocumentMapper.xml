@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edocyundtx.assistant.mapper.DocumentMapper">
+    <resultMap id="BaseResultMap" type="com.edocyundtx.assistant.entity.Document">
+        <!--@mbg.generated-->
+        <!--@Table document-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="doc_type" jdbcType="VARCHAR" property="docType"/>
+        <result column="doc_name" jdbcType="VARCHAR" property="docName"/>
+        <result column="doc_detail" jdbcType="LONGVARCHAR" property="docDetail"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, doc_type, doc_name, doc_detail
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from document
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete from document
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.edocyundtx.assistant.entity.Document"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into document (doc_type, doc_name, doc_detail
+        )
+        values (#{docType,jdbcType=VARCHAR}, #{docName,jdbcType=VARCHAR}, #{docDetail,jdbcType=LONGVARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.edocyundtx.assistant.entity.Document"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into document
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="docType != null">
+                doc_type,
+            </if>
+            <if test="docName != null">
+                doc_name,
+            </if>
+            <if test="docDetail != null">
+                doc_detail,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="docType != null">
+                #{docType,jdbcType=VARCHAR},
+            </if>
+            <if test="docName != null">
+                #{docName,jdbcType=VARCHAR},
+            </if>
+            <if test="docDetail != null">
+                #{docDetail,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.edocyundtx.assistant.entity.Document">
+        <!--@mbg.generated-->
+        update document
+        <set>
+            <if test="docType != null">
+                doc_type = #{docType,jdbcType=VARCHAR},
+            </if>
+            <if test="docName != null">
+                doc_name = #{docName,jdbcType=VARCHAR},
+            </if>
+            <if test="docDetail != null">
+                doc_detail = #{docDetail,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.edocyundtx.assistant.entity.Document">
+        <!--@mbg.generated-->
+        update document
+        set doc_type = #{docType,jdbcType=VARCHAR},
+        doc_name = #{docName,jdbcType=VARCHAR},
+        doc_detail = #{docDetail,jdbcType=LONGVARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
