@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.edocyundtx.assistant.mapper.DocumentMapper">
-    <resultMap id="BaseResultMap" type="com.edocyundtx.assistant.entity.Document">
+<mapper namespace="com.initboot.assistant.mapper.DocumentMapper">
+    <resultMap id="BaseResultMap" type="com.initboot.assistant.entity.Document">
         <!--@mbg.generated-->
         <!--@Table document-->
         <id column="id" jdbcType="INTEGER" property="id"/>
@@ -25,7 +25,7 @@
         delete from document
         where id = #{id,jdbcType=INTEGER}
     </delete>
-    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.edocyundtx.assistant.entity.Document"
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.initboot.assistant.entity.Document"
             useGeneratedKeys="true">
         <!--@mbg.generated-->
         insert into document (doc_type, doc_name, doc_detail
@@ -33,7 +33,7 @@
         values (#{docType,jdbcType=VARCHAR}, #{docName,jdbcType=VARCHAR}, #{docDetail,jdbcType=LONGVARCHAR}
         )
     </insert>
-    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.edocyundtx.assistant.entity.Document"
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.initboot.assistant.entity.Document"
             useGeneratedKeys="true">
         <!--@mbg.generated-->
         insert into document
@@ -60,7 +60,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.edocyundtx.assistant.entity.Document">
+    <update id="updateByPrimaryKeySelective" parameterType="com.initboot.assistant.entity.Document">
         <!--@mbg.generated-->
         update document
         <set>
@@ -76,7 +76,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.edocyundtx.assistant.entity.Document">
+    <update id="updateByPrimaryKey" parameterType="com.initboot.assistant.entity.Document">
         <!--@mbg.generated-->
         update document
         set doc_type = #{docType,jdbcType=VARCHAR},

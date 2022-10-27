@@ -32,4 +32,4 @@ mybatis-plus:
 #showSql
 logging:
   level:
-    com.edocyundtx.assistant.mapper: debug
+    com.initboot.assistant.mapper: debug
